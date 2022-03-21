@@ -20,7 +20,6 @@
 
 ## 参考资料
 
-![This is an image](https://myoctocat.com/assets/images/base-octocat.svg)
 
 详细的元器件清单在这里：链接：https://pan.baidu.com/s/1SK91G157tQt-f0vSRgIzmw?pwd=itzs 
 提取码：itzs
@@ -30,4 +29,7 @@ PCB热转印原理图：链接：https://pan.baidu.com/s/100OBSqIFcOEytHc1fRL7KA
 
 其他的一些硬件参考资料：链接：https://pan.baidu.com/s/1oKts2k1LMSfozumXk7MrwA?pwd=itzs 
 提取码：itzs（网上也可以查得到）
+
+
+![This is an image](https://myoctocat.com/assets/images/base-octocat.svg)
 
