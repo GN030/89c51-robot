@@ -34,3 +34,5 @@ PCB热转印原理图：链接：https://pan.baidu.com/s/100OBSqIFcOEytHc1fRL7KA
 
 ![This is an image](实物图和演示视频/整体.jpg)
 
+ ![Image text](实物图和演示视频/整体.jpg)
+
