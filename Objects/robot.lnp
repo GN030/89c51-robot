@@ -1,0 +1,8 @@
+".\Objects\STARTUP.obj",
+".\Objects\main.obj",
+".\Objects\motor.obj",
+".\Objects\delay1ms.obj",
+".\Objects\dht11.obj",
+".\Objects\LCD1602.obj" 
+TO ".\Objects\robot" 
+PRINT(".\Listings\robot.m51") RAMSIZE(256) 
