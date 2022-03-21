@@ -30,9 +30,6 @@ PCB热转印原理图：链接：https://pan.baidu.com/s/100OBSqIFcOEytHc1fRL7KA
 其他的一些硬件参考资料：链接：https://pan.baidu.com/s/1oKts2k1LMSfozumXk7MrwA?pwd=itzs 
 提取码：itzs（网上也可以查得到）
 
-![This is an image](https://myoctocat.com/assets/images/base-octocat.svg)
-
 ![This is an image](实物图和演示视频/整体.jpg)
 
- ![Image text](实物图和演示视频/整体.jpg)
 
