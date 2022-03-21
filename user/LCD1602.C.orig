@@ -1,0 +1,100 @@
+#include <reg52.h>
+#include "LCD1602.h"
+#include "dht11.h"
+#include "delay1ms.h"
+
+/*定义一些需要显示的字符串*/
+unsigned char table[]= " T:";
+unsigned char T;
+unsigned char table1[]=" H:";
+unsigned char H;
+unsigned char table2[]="%  ";
+unsigned char hy[]= "   Welcome!!!";
+
+/*LCD初始化*/
+void LCDInit()
+{
+	unsigned char n;
+    LCDWrcom(0x38);//0x38设置显示模式为：16X2 显示,5X7 点阵,8 位数据接口
+    delay1ms(10);
+    LCDWrcom(0x38);//0x38设置显示模式为：16X2 显示,5X7 点阵,8 位数据接口
+    delay1ms(10);
+    LCDWrcom(0x0c);//打开显示，隐藏光标
+    LCDWrcom(0x06);//指针自动向右加一
+    LCDWrcom(0x01);//清屏
+    LCDWrcom(0x80);//设置数据指针起点
+	//欢迎语
+    for(n=0; n<13; n++)
+    {
+        LCDWrdata(hy[n]);
+        delay1ms(100);
+    }
+		    LCDWrcom(0x01);//清屏
+}
+/*温度显示*/
+void LCD_T()
+{
+    unsigned char shi,ge,n,temp;
+    LCDWrcom(0x00|0x80);//设置写入地址
+    for(n=0; n<3; n++)
+    {
+        LCDWrdata(table[n]);
+    }
+    //显示整数部分
+    shi=resultByte[2]/10;
+    ge=resultByte[2]%10;
+    LCDWrdata(0x30+shi);//0x30是字符'0'的数值
+    LCDWrdata(0x30+ge);//0x30是字符'0'的数值
+    //显示小数部分
+    temp=resultByte[3];
+    LCDWrdata('.');
+    LCDWrdata(0x30+temp);//0x30是字符'0'的数值
+    LCDWrdata(0xdf);
+    LCDWrdata('C');
+}
+/*湿度显示*/
+void LCD_H()
+{
+    unsigned char shi,ge,n,temp;
+    LCDWrcom(0x40|0x80);//设置写入地址
+    for(n=0; n<3; n++)
+    {
+        LCDWrdata(table1[n]);
+    }
+    //显示整数部分
+    shi=resultByte[0]/10;
+    ge=resultByte[0]%10;
+    LCDWrdata(0x30+shi);//0x30是字符'0'的数值
+    LCDWrdata(0x30+ge);//0x30是字符'0'的数值
+    //显示小数部分
+    temp=resultByte[1];
+    LCDWrdata('.');
+    LCDWrdata(0x30+temp);//0x30是字符'0'的数值
+    for(n=0; n<3; n++)
+    {
+        LCDWrdata(table2[n]);
+    }
+}
+/*写数据*/
+void LCDWrdata(unsigned char dat)
+{
+    RS=1;//写入为数据时RS拉高
+//    RW=0;//写入时将RW拉低
+    E=1;
+    P0=dat;
+    delay1ms(10);
+    E=0;
+    RS=0;//写周期结束
+}
+/*写命令*/
+void LCDWrcom(unsigned char cdat)//写指令数据到LCD
+{
+    RS=0;//写指令时将RS拉低
+//    RW=0;//写入时将RW拉低
+    E=1;
+    P0=cdat;
+    delay1ms(5);//不加此延时将导致不能写入指令，但能写入显示数据
+    E=0;
+}
+/*读数据*/
+/*读状态*/
