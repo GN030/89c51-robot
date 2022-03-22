@@ -34,6 +34,6 @@ PCB热转印原理图：链接：https://pan.baidu.com/s/100OBSqIFcOEytHc1fRL7KA
 提取码：itzs（视频比较大，直接放网盘看吧）
 
 实物图如下：（加载慢的话，可以去仓库里下载到本地看）
-![This is an image](实物图和演示视频/整体.jpg)
+![This is an image](实物图/整体.jpg)
 
 
